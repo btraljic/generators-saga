@@ -15,11 +15,7 @@ const Counter = ({
     </button>
     <br />
     <button onClick={onincrementAsyncIterator}>
-      Increment after 3 second (generator with iterator helper)
-    </button>
-    <br />
-    <button onClick={onIncrementAsyncWithoutGenerator}>
-      Increment after 3 second (saga without generator function)
+      Increment after 3 second (fake saga without generators)
     </button>
     <br />
     <button onClick={onIncrementAsync}>Increment after 3 second (saga)</button>

@@ -24,7 +24,6 @@ function render() {
         onIncrement={() => action('INCREMENT')}
         onDecrement={() => action('DECREMENT')}
         onIncrementAsync={() => action('INCREMENT_ASYNC')}
-        onIncrementAsyncWithoutGenerator={() => action('INCREMENT_ASYNC')}
         onincrementAsyncIterator={() => incrementAsyncIterator(action)}
         onincrementAsyncAwait={() => incrementAsyncAwait(action)}
       />
