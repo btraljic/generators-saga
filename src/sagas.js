@@ -1,5 +1,7 @@
 import { put, takeEvery, all } from 'redux-saga/effects'
 
+const delay = (ms) => new Promise((res) => setTimeout(res, ms))
+
 // ****************************************************************************
 // ***** My limited fake generator function for "cheating" saga
 function generatorWithoutGenerator(yields) {
@@ -17,8 +19,6 @@ function generatorWithoutGenerator(yields) {
   }
 }
 // ****************************************************************************
-
-const delay = (ms) => new Promise((res) => setTimeout(res, ms))
 
 // ****************************************************************************
 // ***** incrementAsync generator function
@@ -48,7 +48,7 @@ function watchIncrementAsyncWithoutGenerator() {
 // ****************************************************************************
 
 // ****************************************************************************
-// ***** generator with iterator helper (inside saga)
+// ***** generator with iterator helper (inside saga, limited without effects)
 function* incrementAsyncWithoutSaga(action) {
   yield delay(3000)
   yield action('INCREMENT')
@@ -72,5 +72,5 @@ export async function incrementAsyncAwait(action) {
 // ****************************************************************************
 
 export default function* rootSaga() {
-  yield all([watchIncrementAsync(), watchIncrementAsyncWithoutGenerator])
+  yield all([watchIncrementAsync(), watchIncrementAsyncWithoutGenerator()])
 }
